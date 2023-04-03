@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Data</title>
+    <style>
+        body {
+			font-family: Arial, Helvetica, sans-serif;
+			background-color: #f2f2f2;
+			padding: 20px;
+		}
+
+		.section {
+			margin-bottom: 3rem;
+            max-width: 70rem;
+		}
+		.section h2 {
+			text-align: left;
+			margin-bottom: 10px;
+            font-size: medium;
+		}
+		.section table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+		.section th, .section td {
+			text-align: left;
+			padding:  .8rem;
+			border-bottom: 1px dashed #c3c3c3;
+		}
+		.section th {
+			background-color: #4CAF50;
+            font-size: small;
+			color: white;
+		}
+
+
+    </style>
+</head>
+<body>
+
+    <h1>Agent information</h1>
+	<!-- Address section -->
+	<div class="section">
+		<h2>Address</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>metric</th>
+					<th>Value</th>
+                    <th>description</th>
+				</tr>
+			</thead>
+			<tbody>
+                <tr>
+					<td>ip address</td>
+					<td>{{ data['ip_address'] }}</td>
+                    <td>The IP address of the agent</td>
+				</tr>
+				<tr>
+					<td>mac address</td>
+					<td>{{ data['mac_address'] }}</td>
+                    <td>The MAC address of the agent</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<!-- RAM section -->
+	<div class="section">
+		<h2>RAM</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>metric</th>
+					<th>Value</th>
+                    <th>description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>memory percentage</td>
+					<td>{{ data['ram']['memory_percentage'] }} %</td>
+                    <td>The percentage of RAM currently being used</td>
+				</tr>
+				<tr>
+					<td>total_ram</td>
+					<td>{{ data['ram']['total_ram'] }} Mo</td>
+                    <td>The total amount of RAM installed on the agent's system</td>
+				</tr>
+				<tr>
+					<td>used_ram</td>
+					<td>{{ data['ram']['used_ram'] }} Mo</td>
+                    <td>The amount of RAM currently in use on the agent's system</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<!-- CPU section -->
+	<div class="section">
+		<h2>CPU</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>metric</th>
+					<th>Value</th>
+                    <th>description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>cpu utilisation</td>
+					<td>{{ data['cpu_utilisation'] }}</td>
+                    <td>The overall CPU utilisation percentage</td>
+				</tr>
+				<tr>
+					<td>user load</td>
+					<td>{{ data['cpu']['user_load'] }}</td>
+                    <td>The CPU time used by user-level processes</td>
+				</tr>
+				<tr>
+					<td>idle load</td>
+					<td>{{ data['cpu']['idle_load'] }}</td>
+                    <td>The CPU time that is idle</td>
+				</tr>
+				<tr>
+					<td>system load</td>
+					<td>{{ data['cpu']['system_load'] }}</td>
+                    <td>The  CPU time used by system-level processes</td>
+				</tr>
+            </tbody>
+        </table>
+
+</body>
+</html>
